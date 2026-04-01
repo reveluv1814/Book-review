@@ -1,0 +1,17 @@
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL,
+  email TEXT UNIQUE NOT NULL,
+  password TEXT NOT NULL
+);
+
+CREATE TABLE reviews (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER REFERENCES users(id),
+  book_title TEXT NOT NULL,
+  rating INTEGER CHECK (rating BETWEEN 1 AND 5),
+  review TEXT NOT NULL,
+  mood TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
