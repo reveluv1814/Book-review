@@ -38,3 +38,17 @@ export interface CreateReviewData {
   mood: string;
 }
 
+// frontend
+
+export interface AuthContextType {
+  token: string | null;
+  user: User | null;
+  isAuthenticated: boolean;
+  setAuth: (token: string, user: User) => void;
+  logout: () => void;
+}
+
+export interface LoginResponse {
+  success: string;
+  token: string;
+}
