@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { ReviewsService } from "./reviews.service";
-import { CreateReviewData } from "@/types";
+import { CreateReviewData } from "@/src/types/types";
 
 export async function GET() {
   try {

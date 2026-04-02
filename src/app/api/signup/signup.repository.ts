@@ -1,5 +1,5 @@
-import { SignupData, User } from "@/types";
-import { db } from "@/lib/db";
+import { SignupData, User } from "@/src/types/types";
+import { db } from "@/src/lib/db";
 
 export class SignupRepository {
   constructor(private database = db) {}

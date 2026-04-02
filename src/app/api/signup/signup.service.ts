@@ -1,4 +1,4 @@
-import { SignupData, User } from "@/types";
+import { SignupData, User } from "@/src/types/types";
 import bcrypt from "bcryptjs";
 import { SignupRepository } from "./signup.repository";
 

@@ -1,4 +1,4 @@
-import { SignupData } from "@/types";
+import { SignupData } from "@/src/types/types";
 import { NextRequest, NextResponse } from "next/server";
 import { SignupService } from "./signup.service";
 

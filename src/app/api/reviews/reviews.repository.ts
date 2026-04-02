@@ -1,5 +1,5 @@
-import { db } from "@/lib/db";
-import { CreateReviewData, Review } from "@/types";
+import { db } from "@/src/lib/db";
+import { CreateReviewData, Review } from "@/src/types/types";
 
 export class ReviewsRepository {
   constructor(private database = db) {}

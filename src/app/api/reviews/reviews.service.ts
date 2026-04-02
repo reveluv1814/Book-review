@@ -1,6 +1,6 @@
-import { verifyUser } from "@/lib/authCookie";
+import { verifyUser } from "@/src/lib/authCookie";
 import { ReviewsRepository } from "./reviews.repository";
-import { CreateReviewData, Review } from "@/types";
+import { CreateReviewData, Review } from "@/src/types/types";
 import { SignupRepository } from "../signup/signup.repository";
 
 export class ReviewsService {

@@ -1,7 +1,7 @@
-import { LoginData, User } from "@/types";
+import { LoginData, User } from "@/src/types/types";
 import { SignupRepository } from "../signup/signup.repository";
 import bcrypt from "bcryptjs";
-import { signToken } from "@/lib/auth";
+import { signToken } from "@/src/lib/auth";
 
 export class LoginService {
   constructor(private signupRepository = new SignupRepository()) {}
