@@ -18,7 +18,7 @@ export async function DELETE(
 
     const resultado = await new ReviewsService().deleteReview(reviewId);
     const response = NextResponse.json(
-      { success: true, reviews: resultado },
+      { success: true, id: resultado },
       { status: 200 },
     );
 

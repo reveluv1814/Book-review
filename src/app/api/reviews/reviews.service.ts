@@ -52,7 +52,7 @@ export class ReviewsService {
         user_id: user.userId,
       });
 
-      return reviewCreated;
+      return reviewCreated.id;
     } catch (error) {
       throw new Error(
         error instanceof Error
@@ -75,7 +75,7 @@ export class ReviewsService {
         throw new Error("Review not found");
       }
 
-      return reviewDeleted;
+      return reviewDeleted.id;
     } catch (error) {
       throw new Error(
         error instanceof Error
