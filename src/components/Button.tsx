@@ -10,7 +10,7 @@ const Button = ({
   return (
     <button
       className={clsx(
-        "text-white bg-sky-500 border border-transparent hover:bg-sky-600 focus:ring-4 focus:ring-sky-300 shadow-sm font-medium leading-5 rounded-md text-sm px-4 py-2.5 focus:outline-none cursor-pointer disabled:bg-gray-400 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-gray-400",
+        "text-white bg-primary border border-transparent hover:bg-primary/90 focus:ring-4 focus:ring-primary/30 shadow-sm font-medium leading-5 rounded-lg text-sm px-4 py-2.5 focus:outline-none cursor-pointer disabled:bg-gray-400 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-gray-400 transition-all duration-200",
         className,
       )}
       {...props}

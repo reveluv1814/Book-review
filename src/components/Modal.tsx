@@ -23,45 +23,46 @@ const Modal = ({
   return (
     <div
       className={clsx(
-        "fixed inset-0 z-50 items-center justify-center bg-black/50",
+        "fixed inset-0 z-50 items-center justify-center bg-black/40",
         openModal ? "flex" : "hidden",
       )}
       onClick={onClose}
     >
       <div className="w-full max-w-md p-4" onClick={(e) => e.stopPropagation()}>
-        <div className="relative bg-white border border-gray-200 rounded-lg shadow-md p-6">
+        <div className="relative bg-background-secondary rounded-2xl shadow-lg p-8">
           <button
+            id="close-modal"
             type="button"
-            className="absolute top-3 right-3 inline-flex items-center justify-center w-9 h-9 text-gray-500 hover:bg-gray-100 hover:text-gray-900 rounded-md"
+            className="absolute top-4 right-4 inline-flex items-center justify-center w-9 h-9 text-text/60 hover:bg-third/10 hover:text-third rounded-full transition-all cursor-pointer"
             onClick={onClose}
           >
-            <i className="ri-close-circle-line" />
+            <i className="ri-close-line text-xl" />
             <span className="sr-only">Close modal</span>
           </button>
 
           <div className={clsx("text-center", className)}>
-            {icono || <i className="ri-information-line" />}
+            <div className="mb-4 flex justify-center text-4xl text-third">
+              {icono || <i className="ri-information-line" />}
+            </div>
 
-            {children}
+            <div className="mb-8 text-text">{children}</div>
 
-            <div className="flex justify-center gap-4">
+            <div className="flex justify-end gap-3">
               {buttons || (
                 <>
                   <button
-                    className="text-white bg-rose-600 hover:bg-rose-700 focus:ring-4 focus:ring-rose-300 rounded-md text-sm px-4 py-2.5 font-medium"
-                    onClick={onConfirm}
-                    disabled={loading}
-                  >
-                    Confirmar
-                  </button>
-
-                  {/* <!-- Cancel --> */}
-                  <button
-                    className="text-gray-700 bg-gray-100 border border-gray-300 hover:bg-gray-200 hover:text-gray-900 focus:ring-4 focus:ring-gray-200 rounded-md text-sm px-4 py-2.5 font-medium"
+                    className="text-primary bg-background-secondary border border-primary hover:bg-[#667EEA]/20 transition-colors rounded-lg text-sm px-6 py-2.5 font-medium disabled:opacity-50 cursor-pointer"
                     onClick={onClose}
                     disabled={loading}
                   >
                     Cancelar
+                  </button>
+                  <button
+                    className="text-white bg-primary hover:bg-[#667EEA]/90 transition-colors rounded-lg text-sm px-6 py-2.5 font-medium disabled:opacity-50 cursor-pointer"
+                    onClick={onConfirm}
+                    disabled={loading}
+                  >
+                    Confirmar
                   </button>
                 </>
               )}
