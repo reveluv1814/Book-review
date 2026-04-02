@@ -14,20 +14,29 @@ const ReviewForm = () => {
     register,
     handleSubmit,
     control,
+    reset,
     formState: { errors, isValid },
   } = useForm<ReviewFormData>({
     resolver: zodResolver(reviewSchema),
     mode: "onChange",
   });
 
+  const onSubmit = async (data: ReviewFormData) => {
+    await createReview(data);
+    reset();
+  };
+
   return (
     <form
-      onSubmit={handleSubmit(createReview)}
-      className="mx-auto flex w-full max-w-xl flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"
+      onSubmit={handleSubmit(onSubmit)}
+      className="w-full rounded-2xl bg-background-secondary p-8 shadow-lg space-y-6"
     >
-      <div className="flex flex-col gap-5">
-        <div className="flex flex-col gap-3">
-          <label htmlFor="book_title">
+      <div className="space-y-4">
+        <div className="flex flex-col gap-2">
+          <label
+            htmlFor="book_title"
+            className="text-sm font-medium text-custom"
+          >
             <i className="ri-book-2-line mr-2" />
             Título del libro
           </label>
@@ -36,23 +45,21 @@ const ReviewForm = () => {
             id="book_title"
             {...register("book_title")}
             disabled={isLoadingCreateReview}
-            className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-transparent disabled:bg-gray-100 disabled:text-gray-500 disabled:border-gray-200"
-            placeholder="Ingresa el título del libro"
+            className="rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-custom transition placeholder:text-gray-500 focus:border-primary focus:outline-none focus:ring-2 focus:ring-[#667EEA]/20 disabled:bg-gray-100 disabled:text-gray-500"
+            placeholder="Ej: Cien años de soledad"
           />
           {errors.book_title && (
-            <p className="text-rose-500 text-sm mt-1">
-              {errors.book_title.message}
-            </p>
+            <p className="text-xs text-rose-600">{errors.book_title.message}</p>
           )}
         </div>
 
         <div className="flex flex-col gap-3">
-          <label htmlFor="rating">
+          <label htmlFor="rating" className="text-sm font-medium text-custom">
             <i className="ri-star-line mr-2" />
             Calificación
           </label>
 
-          <div className="grid grid-cols-5 gap-2">
+          <div className="grid grid-cols-5 gap-3">
             <Controller
               name="rating"
               control={control}
@@ -68,20 +75,20 @@ const ReviewForm = () => {
                         type="button"
                         onClick={() => field.onChange(rating)}
                         disabled={isLoadingCreateReview}
-                        className={`flex flex-col items-center justify-center rounded-2xl border px-3 py-3 text-center transition ${
+                        className={`flex flex-col items-center justify-center rounded-xl border-2 px-2 py-4 text-center transition-all cursor-pointer ${
                           isSelected
-                            ? "border-sky-500 bg-sky-50 text-sky-700 ring-2 ring-sky-200"
-                            : "border-slate-200 bg-white text-slate-600 hover:border-sky-300 hover:bg-sky-50"
+                            ? "border-third bg-violet-500/10 text-third ring-1 ring-third/20"
+                            : "border-gray-300 bg-white text-gray-600 hover:border-third hover:bg-third/5"
                         }`}
                       >
                         <i
-                          className={`text-lg ${
+                          className={`text-xl ${
                             isSelected
                               ? "ri-star-fill text-amber-500"
                               : "ri-star-line"
                           }`}
                         />
-                        <span className="mt-1 text-sm font-semibold">
+                        <span className="mt-1 text-xs font-semibold">
                           {rating}
                         </span>
                       </button>
@@ -93,34 +100,29 @@ const ReviewForm = () => {
           </div>
 
           {errors.rating && (
-            <p className="text-rose-500 text-sm mt-1">
-              {errors.rating.message}
-            </p>
+            <p className="text-xs text-rose-600">{errors.rating.message}</p>
           )}
         </div>
 
-        <div className="flex flex-col gap-3">
-          <label htmlFor="review">
+        <div className="flex flex-col gap-2">
+          <label htmlFor="review" className="text-sm font-medium text-custom">
             <i className="ri-chat-3-line mr-2" />
             Reseña
           </label>
-          <input
-            type="text"
+          <textarea
             id="review"
             {...register("review")}
             disabled={isLoadingCreateReview}
-            className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-transparent disabled:bg-gray-100 disabled:text-gray-500 disabled:border-gray-200"
-            placeholder="Ingresa tu reseña"
+            className="rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-custom transition placeholder:text-gray-500 focus:border-primary focus:outline-none focus:ring-2 focus:ring-[#667EEA]/20 disabled:bg-gray-100 disabled:text-gray-500 resize-none min-h-24"
+            placeholder="Comparte tu opinión sobre el libro..."
           />
           {errors.review && (
-            <p className="text-rose-500 text-sm mt-1">
-              {errors.review.message}
-            </p>
+            <p className="text-xs text-rose-600">{errors.review.message}</p>
           )}
         </div>
 
-        <div className="flex flex-col gap-3">
-          <label htmlFor="mood">
+        <div className="flex flex-col gap-2">
+          <label htmlFor="mood" className="text-sm font-medium text-custom">
             <i className="ri-emotion-happy-line mr-2" />
             Mood
           </label>
@@ -129,21 +131,31 @@ const ReviewForm = () => {
             id="mood"
             {...register("mood")}
             disabled={isLoadingCreateReview}
-            className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-transparent disabled:bg-gray-100 disabled:text-gray-500 disabled:border-gray-200"
-            placeholder="Ingresa tu mood"
+            className="rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-custom transition placeholder:text-gray-500 focus:border-primary focus:outline-none focus:ring-2 focus:ring-[#667EEA]/20 disabled:bg-gray-100 disabled:text-gray-500"
+            placeholder="Ej: Reflexivo, Emocionante, Inspirador"
           />
           {errors.mood && (
-            <p className="text-rose-500 text-sm mt-1">{errors.mood.message}</p>
+            <p className="text-xs text-rose-600">{errors.mood.message}</p>
           )}
         </div>
       </div>
-      <Button
-        type="submit"
-        disabled={isLoadingCreateReview || !isValid}
-        className="w-full"
-      >
-        {isLoadingCreateReview ? "Registrando..." : "Guardar review"}
-      </Button>
+
+      <div className="flex gap-3">
+        <Button
+          type="submit"
+          disabled={isLoadingCreateReview || !isValid}
+          className="flex-1"
+        >
+          {isLoadingCreateReview ? (
+            <>
+              <i className="ri-loader-4-line mr-2 inline-block animate-spin" />
+              Registrando...
+            </>
+          ) : (
+            "Registrar review"
+          )}
+        </Button>
+      </div>
     </form>
   );
 };

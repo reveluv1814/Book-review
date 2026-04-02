@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/src/components/Button";
+import WelcomeBanner from "@/src/components/WelcomeBanner";
 import { useLogin } from "@/src/hooks/useLogin";
 import { useReviews } from "@/src/hooks/useReviews";
 import { useEffect } from "react";
@@ -22,13 +23,21 @@ const Reviews = () => {
 
   return (
     <div className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
-        <div>
-          <h1 className="text-2xl font-bold text-slate-900">Mis Reviews</h1>
-          <p className="mt-1 text-sm text-slate-600">Hola {userName}</p>
-        </div>
-        <Button onClick={handleLogout}>cerrar sesión</Button>
+      <div className="mb-8 flex items-center justify-end">
+        <Button
+          onClick={handleLogout}
+          className="bg-third border border-white hover:bg-violet-500/50 text-white"
+        >
+          <i className="ri-logout-box-r-line mr-2" />
+          Cerrar sesión
+        </Button>
       </div>
+
+      <div className="mb-12">
+        <WelcomeBanner userName={userName} />
+      </div>
+
+      <hr className="h-px my-8 bg-neutral-50/40 border-0" />
 
       <ReviewsContainer
         reviews={reviews}

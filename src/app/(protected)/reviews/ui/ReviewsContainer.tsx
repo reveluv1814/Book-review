@@ -47,21 +47,32 @@ const ReviewsContainer = ({
   };
 
   return (
-    <div>
+    <div className="space-y-6">
       {isLoadingListReviews ? (
-        <p className="text-slate-600">Cargando reviews...</p>
+        <div className="rounded-2xl bg-background-secondary p-8 text-center">
+          <p className="text-custom text-2xl">Cargando reviews...</p>
+        </div>
       ) : errorListReviews ? (
-        <p className="rounded-lg border border-rose-200 bg-rose-50 p-3 text-rose-700">
-          {errorListReviews}
-        </p>
+        <div className="rounded-xl border-l-4 border-l-third bg-background-secondary p-6">
+          <p className="text-custom text-2xl">{errorListReviews}</p>
+        </div>
       ) : reviews && reviews.length === 0 ? (
-        <p className="rounded-lg border border-slate-200 bg-slate-50 p-4 text-slate-600">
-          Todavia no hay reviews para mostrar.
-        </p>
+        <div className="rounded-xl bg-background-secondary p-12 text-center">
+          <p className="text-text mb-6">Todavia no hay reviews para mostrar.</p>
+          <Button onClick={handleAddReview}>Crear tu primera review</Button>
+        </div>
       ) : (
-        <div>
-          <Button onClick={handleAddReview}>Agregar Review</Button>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <div className="space-y-6">
+          <div className="flex justify-between items-center">
+            <h2 className="text-3xl font-semibold text-white">Reviews</h2>
+            <Button
+              onClick={handleAddReview}
+              className="flex items-center justify-center gap-2 hover:bg-[#667EEA]/80 "
+            >
+              <i className="ri-add-circle-line text-lg"></i> Agregar Review
+            </Button>
+          </div>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
             {reviews?.map((review) => (
               <ReviewCard
                 key={review.id}
