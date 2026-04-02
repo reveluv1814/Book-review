@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { authService } from "../app/services/authService";
 import { LoginData } from "../types/types";
 import { useAuthContext } from "./useAuthContext";
+import { toast } from "react-toastify";
 
 export function useLogin() {
   const router = useRouter();
@@ -24,8 +25,12 @@ export function useLogin() {
       const errorMessage =
         e instanceof Error
           ? e.message
-          : "Error al iniciar sesión. Verifica tus credenciales.";
+          : "Error al iniciar sesión. Verifica tus credenciales";
       setError(errorMessage);
+      toast.error(errorMessage, {
+        position: "top-right",
+        autoClose: 3000,
+      });
     } finally {
       setIsLoading(false);
     }
@@ -44,6 +49,10 @@ export function useLogin() {
           ? e.message
           : "Error al cerrar sesión. Inténtalo de nuevo.";
       setError(errorMessage);
+      toast.error(errorMessage, {
+        position: "top-right",
+        autoClose: 3000,
+      });
     } finally {
       setIsLoading(false);
     }
