@@ -48,12 +48,32 @@ export interface AuthContextType {
   logout: () => void;
 }
 
+export interface UserResponse {
+  id: number;
+  name: string;
+}
 export interface LoginResponse {
   success: string;
-  name: string;
+  user: UserResponse;
 }
 
 export interface SignupResponse {
   success: string;
   id: number;
+}
+
+export interface ReviewData {
+  id: number;
+  user_id: number;
+  book_title: string;
+  rating: number;
+  review: string;
+  mood: string;
+  created_at: Date | string;
+  reviewer: string;
+}
+
+export interface ReviewResponse {
+  success: string;
+  reviews: ReviewData[];
 }
