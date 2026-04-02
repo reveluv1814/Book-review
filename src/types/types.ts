@@ -50,7 +50,7 @@ export interface AuthContextType {
 
 export interface LoginResponse {
   success: string;
-  token: string;
+  name: string;
 }
 
 export interface SignupResponse {
