@@ -7,7 +7,7 @@ export async function POST(req: NextRequest) {
     const body: LoginData = await req.json();
     const resultado = await new LoginService().login(body);
     const response = NextResponse.json(
-      { success: true, token: resultado.token },
+      { success: true, name: resultado.name },
       { status: 200 },
     );
 
