@@ -32,7 +32,6 @@ export interface Review {
 }
 
 export interface CreateReviewData {
-  user_id: number;
   book_title: string;
   rating: number;
   review: string;
