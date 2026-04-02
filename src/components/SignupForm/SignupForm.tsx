@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { SignupFormData, signupSchema } from "./types";
@@ -18,51 +19,50 @@ const SignupForm = () => {
   });
 
   return (
-    <form
-      onSubmit={handleSubmit(handleSignup)}
-      className="space-y-6"
-      style={{ width: "387px" }}
-    >
-      <div className="flex flex-col gap-4 items-center">
-        <div className="flex flex-col gap-4  w-full">
-          <label htmlFor="email">
-            <i className="ri-user-3-line" />
-            Nombre
+    <form onSubmit={handleSubmit(handleSignup)} className="space-y-5">
+      <div className="space-y-4">
+        <div className="flex flex-col gap-2">
+          <label htmlFor="name" className="text-sm font-medium text-gray-700">
+            <i className="ri-user-3-line mr-2" />
+            Nombre completo
           </label>
           <input
-            type="name"
+            type="text"
             id="name"
             {...register("name")}
             disabled={isLoading}
-            className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-transparent disabled:bg-gray-100 disabled:text-gray-500 disabled:border-gray-200"
-            placeholder="Ingresa tu nombre"
+            className="rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 transition placeholder:text-gray-500 focus:border-primary focus:outline-none focus:ring-2 focus:ring-[#667EEA]/20 disabled:bg-gray-100 disabled:text-gray-500"
+            placeholder="Juan Pérez"
           />
           {errors.name && (
-            <p className="text-rose-500 text-sm mt-1">{errors.name.message}</p>
+            <p className="text-xs text-rose-600">{errors.name.message}</p>
           )}
         </div>
 
-        <div className="flex flex-col gap-4  w-full">
-          <label htmlFor="email">
-            <i className="ri-mail-line" />
-            Correo
+        <div className="flex flex-col gap-2">
+          <label htmlFor="email" className="text-sm font-medium text-gray-700">
+            <i className="ri-mail-line mr-2" />
+            Correo electrónico
           </label>
           <input
             type="email"
             id="email"
             {...register("email")}
             disabled={isLoading}
-            className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-transparent disabled:bg-gray-100 disabled:text-gray-500 disabled:border-gray-200"
-            placeholder="Ingresa tu correo"
+            className="rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 transition placeholder:text-gray-500 focus:border-primary focus:outline-none focus:ring-2 focus:ring-[#667EEA]/20 disabled:bg-gray-100 disabled:text-gray-500"
+            placeholder="correo@email.com"
           />
           {errors.email && (
-            <p className="text-rose-500 text-sm mt-1">{errors.email.message}</p>
+            <p className="text-xs text-rose-600">{errors.email.message}</p>
           )}
         </div>
 
-        <div className="flex flex-col gap-4 w-full">
-          <label htmlFor="password">
-            <i className="ri-lock-line" />
+        <div className="flex flex-col gap-2">
+          <label
+            htmlFor="password"
+            className="text-sm font-medium text-gray-700"
+          >
+            <i className="ri-lock-line mr-2" />
             Contraseña
           </label>
           <input
@@ -70,23 +70,29 @@ const SignupForm = () => {
             id="password"
             {...register("password")}
             disabled={isLoading}
-            className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-transparent disabled:bg-gray-100 disabled:text-gray-500 disabled:border-gray-200"
-            placeholder="Ingresa tu contraseña"
+            className="rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 transition placeholder:text-gray-500 focus:border-primary focus:outline-none focus:ring-2 focus:ring-[#667EEA]/20 disabled:bg-gray-100 disabled:text-gray-500"
+            placeholder="******"
           />
           {errors.password && (
-            <p className="text-rose-500 text-sm mt-1">
-              {errors.password.message}
-            </p>
+            <p className="text-xs text-rose-600">{errors.password.message}</p>
           )}
         </div>
       </div>
+
       <Button
-        id="login-button"
+        id="signup-button"
         type="submit"
         disabled={isLoading || !isValid}
         className="w-full"
       >
-        {isLoading ? "Registrando..." : "Registrarse"}
+        {isLoading ? (
+          <>
+            <i className="ri-loader-4-line mr-2 inline-block animate-spin" />
+            Creando cuenta...
+          </>
+        ) : (
+          "Crear cuenta"
+        )}
       </Button>
     </form>
   );
