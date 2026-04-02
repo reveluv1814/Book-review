@@ -12,20 +12,25 @@ const AddreviewPage = () => {
   };
 
   return (
-    <div className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      <div className="mb-6 flex items-center justify-between gap-4">
-        <div>
-          <h1 className="text-2xl font-bold text-slate-900">Agregar review</h1>
-          <p className="mt-1 text-sm text-slate-600">
-            Completa los datos del libro
+    <div className="flex min-h-screen w-full items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
+      <div className="w-full max-w-2xl">
+        <Button
+          onClick={handleBack}
+          className="bg-transparent border-white hover:bg-gray-50/10 mb-10"
+        >
+          <i className="ri-arrow-left-line" />
+          Volver a reviews
+        </Button>
+
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold text-white">Agregar review</h1>
+          <p className="mt-2 text-white font-extralight">
+            Comparte tu opinión sobre este libro
           </p>
         </div>
-        <Button className="bg-transparent border-sky-500!" onClick={handleBack}>
-          <i className="ri-arrow-left-line mr-1"></i> Atrás
-        </Button>
-      </div>
 
-      <ReviewForm />
+        <ReviewForm />
+      </div>
     </div>
   );
 };
