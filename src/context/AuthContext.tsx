@@ -1,11 +1,12 @@
 "use client";
 
 import { createContext, useMemo, useState } from "react";
+import { UserResponse } from "../types/types";
 
 type AuthContextValue = {
-  userName: string;
-  setUserName: (name: string) => void;
-  clearUserName: () => void;
+  user: UserResponse | null;
+  setUser: (user: UserResponse | null) => void;
+  clearUser: () => void;
 };
 
 export const AuthContext = createContext<AuthContextValue | undefined>(
@@ -13,15 +14,15 @@ export const AuthContext = createContext<AuthContextValue | undefined>(
 );
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  const [userName, setUserNameState] = useState<string>("");
+  const [user, setUser] = useState<UserResponse | null>(null);
 
   const value = useMemo<AuthContextValue>(
     () => ({
-      userName,
-      setUserName: (name: string) => setUserNameState(name),
-      clearUserName: () => setUserNameState(""),
+      user,
+      setUser: (user: UserResponse | null) => setUser(user),
+      clearUser: () => setUser(null),
     }),
-    [userName],
+    [user],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
