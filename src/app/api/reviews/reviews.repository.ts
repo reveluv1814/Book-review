@@ -13,6 +13,7 @@ export class ReviewsRepository {
         reviews.review,
         reviews.mood,
         reviews.created_at,
+        reviews.user_id,
         users.name AS reviewer
       FROM reviews
       JOIN users ON users.id = reviews.user_id
