@@ -7,7 +7,7 @@ import { useAuthContext } from "./useAuthContext";
 
 export function useLogin() {
   const router = useRouter();
-  const { userName, setUserName, clearUserName } = useAuthContext();
+  const { user, setUser, clearUser } = useAuthContext();
   const [error, setError] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -17,7 +17,7 @@ export function useLogin() {
     try {
       const resultado = await authService.login(data.email, data.password);
 
-      setUserName(resultado.name);
+      setUser(resultado.user);
 
       router.push("/reviews");
     } catch (e) {
@@ -37,7 +37,7 @@ export function useLogin() {
     try {
       await authService.logout();
       router.push("/login");
-      clearUserName();
+      clearUser();
     } catch (e) {
       const errorMessage =
         e instanceof Error
@@ -53,7 +53,7 @@ export function useLogin() {
     handleLogin,
     handleLogout,
     isLoading,
-    userName,
+    userName: user?.name || null,
     error,
   };
 }
