@@ -18,33 +18,32 @@ const LoginForm = () => {
     mode: "onChange",
   });
   return (
-    <form
-      onSubmit={handleSubmit(handleLogin)}
-      className="space-y-6"
-      style={{ width: "387px" }}
-    >
-      <div className="flex flex-col gap-4 items-center">
-        <div className="flex flex-col gap-4  w-full">
-          <label htmlFor="email">
-            <i className="ri-mail-line" />
-            Correo
+    <form onSubmit={handleSubmit(handleLogin)} className="space-y-5">
+      <div className="space-y-4">
+        <div className="flex flex-col gap-2">
+          <label htmlFor="email" className="text-sm font-medium text-gray-700">
+            <i className="ri-mail-line mr-2" />
+            Correo electrónico
           </label>
           <input
             type="email"
             id="email"
             {...register("email")}
             disabled={isLoading}
-            className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-transparent disabled:bg-gray-100 disabled:text-gray-500 disabled:border-gray-200"
-            placeholder="Ingresa tu correo"
+            className="rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 transition placeholder:text-gray-500 focus:border-primary focus:outline-none focus:ring-2 focus:ring-[#667EEA]/20 disabled:bg-gray-100 disabled:text-gray-500"
+            placeholder="correo@email.com"
           />
           {errors.email && (
-            <p className="text-rose-500 text-sm mt-1">{errors.email.message}</p>
+            <p className="text-xs text-rose-600">{errors.email.message}</p>
           )}
         </div>
 
-        <div className="flex flex-col gap-4 w-full">
-          <label htmlFor="password">
-            <i className="ri-lock-line" />
+        <div className="flex flex-col gap-2">
+          <label
+            htmlFor="password"
+            className="text-sm font-medium text-gray-700"
+          >
+            <i className="ri-lock-line mr-2" />
             Contraseña
           </label>
           <input
@@ -52,34 +51,40 @@ const LoginForm = () => {
             id="password"
             {...register("password")}
             disabled={isLoading}
-            className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:border-transparent disabled:bg-gray-100 disabled:text-gray-500 disabled:border-gray-200"
-            placeholder="Ingresa tu contraseña"
+            className="rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 transition placeholder:text-gray-500 focus:border-primary focus:outline-none focus:ring-2 focus:ring-[#667EEA]/20 disabled:bg-gray-100 disabled:text-gray-500"
+            placeholder="******"
           />
           {errors.password && (
-            <p className="text-rose-500 text-sm mt-1">
-              {errors.password.message}
-            </p>
+            <p className="text-xs text-rose-600">{errors.password.message}</p>
           )}
         </div>
-      </div>
-
-      <div className="mt-2 text-right">
-        <p className="text-caption-1 text-vita-gray-1">
-          ¿No tienes cuenta?{" "}
-          <Link href="/signup" className="text-white hover:underline">
-            Regístrate
-          </Link>
-        </p>
       </div>
 
       <Button
         id="login-button"
         type="submit"
         disabled={isLoading || !isValid}
-        className="w-full"
+        className="w-full "
       >
-        {isLoading ? "Iniciando sesión..." : "Iniciar Sesión"}
+        {isLoading ? (
+          <>
+            <i className="ri-loader-4-line mr-2 inline-block animate-spin" />
+            Iniciando sesión...
+          </>
+        ) : (
+          "Iniciar sesión"
+        )}
       </Button>
+
+      <p className="text-center text-sm text-gray-600">
+        ¿No tienes cuenta?{" "}
+        <Link
+          href="/signup"
+          className="font-semibold text-[#667EEA] transition hover:text-[#764BA2] hover:underline"
+        >
+          Regístrate
+        </Link>
+      </p>
     </form>
   );
 };
