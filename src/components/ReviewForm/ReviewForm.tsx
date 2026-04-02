@@ -142,6 +142,7 @@ const ReviewForm = () => {
 
       <div className="flex gap-3">
         <Button
+          id="add-review-button"
           type="submit"
           disabled={isLoadingCreateReview || !isValid}
           className="flex-1"

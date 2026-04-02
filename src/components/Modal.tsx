@@ -51,6 +51,7 @@ const Modal = ({
               {buttons || (
                 <>
                   <button
+                    id="cancel-button"
                     className="text-primary bg-background-secondary border border-primary hover:bg-[#667EEA]/20 transition-colors rounded-lg text-sm px-6 py-2.5 font-medium disabled:opacity-50 cursor-pointer"
                     onClick={onClose}
                     disabled={loading}
@@ -58,6 +59,7 @@ const Modal = ({
                     Cancelar
                   </button>
                   <button
+                    id="confirm-button"
                     className="text-white bg-primary hover:bg-[#667EEA]/90 transition-colors rounded-lg text-sm px-6 py-2.5 font-medium disabled:opacity-50 cursor-pointer"
                     onClick={onConfirm}
                     disabled={loading}

@@ -26,6 +26,7 @@ export default function ReviewCard({ review, onDelete }: ReviewCardProps) {
         {user?.id === review.user_id && (
           <div className=" inline-flex items-start ">
             <div
+              id={`delete-review-${review.id}`}
               className="cursor-pointer rounded-full p-1 px-2 bg-rose-200 text-rose-400 transition hover:bg-rose-300 hover:text-rose-500"
               onClick={() => onDelete(review.id)}
             >

@@ -47,7 +47,7 @@ const ReviewsContainer = ({
   };
 
   return (
-    <div className="space-y-6">
+    <div id="reviews-list" className="space-y-6">
       {isLoadingListReviews ? (
         <div className="rounded-2xl bg-background-secondary p-8 text-center">
           <p className="text-custom text-2xl">Cargando reviews...</p>
@@ -66,6 +66,7 @@ const ReviewsContainer = ({
           <div className="flex justify-between items-center">
             <h2 className="text-3xl font-semibold text-white">Reviews</h2>
             <Button
+              id="add-review"
               onClick={handleAddReview}
               className="flex items-center justify-center gap-2 hover:bg-[#667EEA]/80 "
             >
