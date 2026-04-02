@@ -52,3 +52,8 @@ export interface LoginResponse {
   success: string;
   token: string;
 }
+
+export interface SignupResponse {
+  success: string;
+  id: number;
+}
