@@ -77,3 +77,13 @@ export interface ReviewResponse {
   success: string;
   reviews: ReviewData[];
 }
+
+export interface CreateReviewResponse {
+  success: string;
+  id: string;
+}
+
+export interface DeleteReviewResponse {
+  success: string;
+  id: string;
+}
