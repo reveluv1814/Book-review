@@ -105,6 +105,14 @@ npm run format:check # Verifica el formato del código sin modificarlo
 npm run test:codegen # Live codegen para los tests e2e
 ```
 
+### Arquitectura del proyecto
+
+El proyecto sigue una arquitectura en capas con separación clara de responsabilidades. Los componentes están organizados por funcionalidad.
+
+- En el Frontend, la lógica de negocio está extraída en custom hooks que pueden reutilizarse. También se utiliza Context para manejar datos del usuario.
+
+- En el Backend, la lógica de acceso a datos está por cabas con una capa de cotroladores, servicios y repositorios.
+
 ### Estructura del Proyecto
 
 El proyecto sigue la estructura estándar de Next.js con una carpeta `src` que contiene el código fuente. Las rutas de la API se encuentran en `src/app/api`, mientras que los componentes y páginas están organizados dentro de `src/app`.
