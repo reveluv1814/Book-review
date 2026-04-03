@@ -1,0 +1,81 @@
+
+# Changelog
+> Todos los cambios que se realizaron al proyecto están documentados en este archivo.
+
+## [0.1.0] – 2026-04-02
+- 2026-04-02 - 71949e3 docs: :books: agregar sección sobre la arquitectura del proyecto en INSTALL.md
+- 2026-04-02 - b2d3490 docs: :books: actualizar la guía de instalación
+- 2026-04-02 - dc772a5 docs: :books: agregar guía de instalación
+- 2026-04-02 - 55a1b00 docs: :books: actualizar el README.md con la documentación necesaria
+- 2026-04-02 - b1201b8 fix: :wrench: eliminar carets y añadir documentación en package.json
+- 2026-04-02 - f3c65df chore: :wrench: actualizar el título em meta args
+- 2026-04-02 - cfa0235 fix: :wrench: agregar redirección a Login
+- 2026-04-02 - e123142 chore: :hammer: agregar archivo  .env.example
+- 2026-04-02 - bbe8e4e chore: :wrench: actualzar archivo .gitignore
+- 2026-04-02 - 58c31d4 test: 🧪 agregar pruebas de flujo de reviews
+- 2026-04-02 - 0b8a66e test: 🧪 agregar pruebas de autenticación y registro de usuarios
+- 2026-04-02 - 28add80 test: 🧪 agregar configuración de Playwright
+- 2026-04-02 - 79136a1 chore: :wrench: ajustes de prettier
+- 2026-04-02 - 40fabeb ui: :art: agregar ids para facilitar la ejecución de tests
+- 2026-04-02 - beb28bf feat: :sparkles: implementar react-toastify
+- 2026-04-02 - 8c14d2d feat: :package: agregar react-toastify, prettier y playwright y sus scripts
+- 2026-04-02 - bb4b96b ui: :art: mejorar estilos y estructura de la página Agregar review
+- 2026-04-02 - 7fd3090 ui: :art: mejorar estilos y agregar WelcomeBanner en la página de Reviews
+- 2026-04-02 - a62d908 ui: :art: ajustar los estilos de la página Signup
+- 2026-04-02 - 86a8328 ui: :art: ajustar los estilos de la página Login
+- 2026-04-02 - d360473 ui(components): :art: crear y modificar los estilos y clases de los componentes
+- 2026-04-02 - a7da8bc feat: :art: configurar estilos
+- 2026-04-02 - 833d0c0 feat: :sparkles: agregar página para agregar reviews
+- 2026-04-02 - 8dea4ce feat: :sparkles: agregar componente ReviewForm
+- 2026-04-02 - 9e86dce feat: :sparkles: agregar página Reviews junto con sus componentes
+- 2026-04-02 - 164ec0f feat: :sparkles: agregar el componente Modal
+- 2026-04-02 - 9206e34 feat(hooks): :hammer: implementar el hook useReviews junto con el servicio y el formato de respuesta
+- 2026-04-02 - fc14bfd feat(types review): :sparkles: agregar tipos de respuesta
+- 2026-04-02 - 264fdf5 feat: :pencil2: modificar el tipo de respueta al eliminar
+- 2026-04-02 - ee6b14e feat: :sparkles: agregar el componente ReviewCard
+- 2026-04-02 - 1faa320 feat(context): :sparkles: agregar usuario al contexto
+- 2026-04-02 - 9463612 feat(types): :pencil2: agregar usuario y tipos para reviews
+- 2026-04-02 - ba1a91f feat: :sparkles: actualizar manejo de usuario en el hook useLogin
+- 2026-04-02 - 6c3bd18 feat: :sparkles: incluir id del usuario en la respuesta de login
+- 2026-04-02 - 17f7009 feat: :sparkles: agregar layout protected
+- 2026-04-02 - ae2cbcb feat: :sparkles: agregar página de registro
+- 2026-04-02 - 16f1bd7 feat: :sparkles: agregar componente SignupForm
+- 2026-04-02 - 62834b4 feat: :sparkles: agregar hook useSignup
+- 2026-04-02 - b24ae6b feat: :sparkles: agregar la página Login
+- 2026-04-02 - 404825f feat: :sparkles: agregar componente LoginForm component
+- 2026-04-02 - 1511626 feat: :sparkles: agregar AuthProvider en RootLayout
+- 2026-04-02 - 7dd76c5 fix: :pencil2: modificar tipo de respuesta al loguearse
+- 2026-04-02 - 0dbd92e feat: :sparkles: implementar el logout en el servicio y hook
+- 2026-04-02 - e53e332 feat: :sparkles: agregar contexto y hook para el username
+- 2026-04-02 - c626d5c feat: :sparkles: agregar endPoint para el logout
+- 2026-04-02 - 9b8786e chore: :wrench: cambiar la respuesta de la petición
+- 2026-04-02 - 30810c2 feat(frontend): :sparkles: agregar servicio de autenticación con login y registro
+- 2026-04-02 - 568aec5 feat: :sparkles: agregar interfaz SignupResponse
+- 2026-04-02 - 8e4b055 feat: :sparkles: agregar componente Button
+- 2026-04-02 - dd18776 feat: :sparkles: agregar hook para login
+- 2026-04-02 - 60d2eac feat(frontend): :sparkles: agregar tipos para AuthContext y LoginResponse
+- 2026-04-02 - 3032017 feat: :lipstick: agregar cdn de remixicon
+- 2026-04-02 - 6715a59 feat: :package: agregar dependencias para el frontend
+- 2026-04-02 - a82460d refactor: :recycle: organizar los archivos en la carpeta src
+
+## [0.1.0] – 2026-04-01
+- 2026-04-01 - 8fa90e7 feat: :sparkles: agregar rutas, servicio y repositorio para reviews
+- 2026-04-01 - bfccd2d feat: :sparkles: agregar el método para buscar un usuario
+- 2026-04-01 - dfdfdb2 fix: :wrench: remover el campo user_id en la interface de reviews
+- 2026-04-01 - 370eac5 feat: :sparkles: agregar función para verificar usuario a partir del token
+- 2026-04-01 - f0f6e60 feat: :sparkles: agregar interfaces para los reviews
+- 2026-04-01 - f4ac8d3 feat: :sparkles: implementar servicio y ruta para el inicio de sesión
+- 2026-04-01 - ef5e1f6 feat: :sparkles: agregar interfaz para el inicio de sesión de usuarios
+- 2026-04-01 - 37f3e4e fix: :wrench: ajustar respuesta de registro de usuario
+- 2026-04-01 - ea6d643 feat: :sparkles: implementar servicio y repositorio para el registro de usuarios
+- 2026-04-01 - 514fac4 feat: :sparkles: implementar funciones para firmar y verificar tokens JWT
+- 2026-04-01 - 6285a6d feat: :sparkles: agregar JWT_SECRET a la configuración
+- 2026-04-01 - 862af17 feat: :sparkles: agregar interfaces para JWTPayload, SignupData y User
+- 2026-04-01 - 0e36b8c feat: :sparkles: agregar dependencias bcryptjs y jsonwebtoken
+- 2026-04-01 - 97f6132 feat: :sparkles: agregar endpoint de estado de la db
+- 2026-04-01 - 8ef6161 feat: :sparkles: agregar esquema de base de datos
+- 2026-04-01 - 4dae0bd feat: :sparkles: agregar conexión a la db
+- 2026-04-01 - d8412b9 feat: :sparkles: agregar archivo de configuración para las variables de entorno
+- 2026-04-01 - 8ddc86c chore: :package: agregar dependencias pg y next/env
+- 2026-04-01 - e75a318 chore: :hammer: inicializar proyecto NextJS
+- 2026-04-01 - 3be30a2 init: 🚀 creación del repositorio

@@ -56,6 +56,8 @@ En cuanto el campo de "mood" o "sentimiento" en la aplicación de review de libr
 
 El tiempo dedicado fueron aproximadamente 15 horas repartidas en el día de ayer y hoy (2 de abril).
 
+Para auditar los cambios realizados, revisar el archivo [CHANGELOG.md](CHANGELOG.md) donde se documentan todos los commits realizados durante el desarrollo del proyecto.
+
 ## Contacto
 
 Para más información, contacta a: **neilgraneros11@gmail.com**
